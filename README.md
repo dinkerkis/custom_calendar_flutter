@@ -26,8 +26,8 @@ import 'package:custom_calendar_table_example/utils.dart';
 
 ``` 
 CalendarFormat _calendarFormat = CalendarFormat.month;
-  DateTime _focusedDay = DateTime.now();
-  DateTime? _selectedDay;
+DateTime _focusedDay = DateTime.now();
+DateTime? _selectedDay;
 
 TableCalendar(
             firstDay: kFirstDay,
