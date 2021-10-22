@@ -4,22 +4,28 @@ A new Flutter project.
 
 ## Getting Started
 
-1. Add in pubspec.yaml file under
+## 1.  Add in pubspec.yaml file under
  
-dependencies:
+ dependencies:
+``` 
+ custom_calendar_table:  
+   git:  
+     url: https://github.com/dinkerkis/custom_calendar_flutter.git
+``` 
+ 
+## 2. Add package
 
-custom_calendar_table:  
-  git:  
-    url: https://github.com/dinkerkis/custom_calendar_flutter.git
-
-2. Add package
-
+``` 
 import 'package:custom_calendar_table/custom_calendar_table.dart';
 import 'package:custom_calendar_table_example/utils.dart';
 
-3. Use in the code like this:
+``` 
 
-  CalendarFormat _calendarFormat = CalendarFormat.month;
+
+## 3.  Use in the code like this: 
+
+``` 
+CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
 
@@ -53,5 +59,9 @@ TableCalendar(
               _focusedDay = focusedDay;
             },
           ),
+
+```
+
+## Calender Table Screen Shot
 
 ![tableCalendar](https://user-images.githubusercontent.com/82141553/138445226-da472a74-cb2a-4985-910b-dfb3efd4bba2.png)
