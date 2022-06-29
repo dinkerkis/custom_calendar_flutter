@@ -42,59 +42,45 @@ class CalendarHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final text = headerStyle.titleTextFormatter?.call(focusedMonth, locale) ?? DateFormat.yMMMM(locale).format(focusedMonth);
 
-
- return Container(
+    return Container(
       decoration: headerStyle.decoration,
       margin: headerStyle.headerMargin,
       padding: headerStyle.headerPadding,
-      child:Text(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Expanded(
+            child: Text(
               text,
               style: headerStyle.titleTextStyle,
               textAlign: headerStyle.titleCentered
                   ? TextAlign.center
                   : TextAlign.start,
             ),
- );
-
-    // return Container(
-    //   decoration: headerStyle.decoration,
-    //   margin: headerStyle.headerMargin,
-    //   padding: headerStyle.headerPadding,
-    //   child: Row(
-    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //     mainAxisSize: MainAxisSize.max,
-    //     children: [
-    //       Expanded(
-    //         child: Text(
-    //           text,
-    //           style: headerStyle.titleTextStyle,
-    //           textAlign: headerStyle.titleCentered
-    //               ? TextAlign.center
-    //               : TextAlign.start,
-    //         ),
-    //       ),
-    //       Row(
-    //         children: [
-    //           if (headerStyle.leftChevronVisible)
-    //             CustomIconButton(
-    //               icon: headerStyle.leftChevronIcon,
-    //               onTap: onLeftChevronTap,
-    //               margin: headerStyle.leftChevronMargin,
-    //               padding: headerStyle.leftChevronPadding,
-    //             ),
-    //           if (headerStyle.rightChevronVisible)
-    //             CustomIconButton(
-    //               icon: headerStyle.rightChevronIcon,
-    //               onTap: onRightChevronTap,
-    //               margin: headerStyle.rightChevronMargin,
-    //               padding: headerStyle.rightChevronPadding,
-    //             ),
-    //         ],
-    //       )
+          ),
+          Row(
+            children: [
+              if (headerStyle.leftChevronVisible)
+                CustomIconButton(
+                  icon: headerStyle.leftChevronIcon,
+                  onTap: onLeftChevronTap,
+                  margin: headerStyle.leftChevronMargin,
+                  padding: headerStyle.leftChevronPadding,
+                ),
+              if (headerStyle.rightChevronVisible)
+                CustomIconButton(
+                  icon: headerStyle.rightChevronIcon,
+                  onTap: onRightChevronTap,
+                  margin: headerStyle.rightChevronMargin,
+                  padding: headerStyle.rightChevronPadding,
+                ),
+            ],
+          )
 
 
-    //     ],
-    //   ),
-    // );
+        ],
+      ),
+    );
   }
 }
