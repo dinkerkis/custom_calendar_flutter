@@ -1,6 +1,7 @@
 // Copyright 2019 Aleksander Woźniak
 // SPDX-License-Identifier: Apache-2.0
 
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 
@@ -15,6 +16,7 @@ class CalendarHeader extends StatelessWidget {
   final DateTime focusedMonth;
   final CalendarFormat calendarFormat;
   final HeaderStyle headerStyle;
+  final VoidCallback onTodayButtonTap;
   final VoidCallback onLeftChevronTap;
   final VoidCallback onRightChevronTap;
   final VoidCallback onHeaderTap;
@@ -29,6 +31,7 @@ class CalendarHeader extends StatelessWidget {
     required this.focusedMonth,
     required this.calendarFormat,
     required this.headerStyle,
+    required this.onTodayButtonTap,
     required this.onLeftChevronTap,
     required this.onRightChevronTap,
     required this.onHeaderTap,
@@ -61,6 +64,23 @@ class CalendarHeader extends StatelessWidget {
           ),
           Row(
             children: [
+              if (headerStyle.todayButtonVisible)
+                InkWell(
+                  onTap: onTodayButtonTap,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.blueGrey,
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                    margin: EdgeInsets.only(right: 5.0),
+                    padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+                    child: Text(
+                      'today',
+                      style: TextStyle(color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
               if (headerStyle.leftChevronVisible)
                 CustomIconButton(
                   icon: headerStyle.leftChevronIcon,
@@ -77,8 +97,6 @@ class CalendarHeader extends StatelessWidget {
                 ),
             ],
           )
-
-
         ],
       ),
     );

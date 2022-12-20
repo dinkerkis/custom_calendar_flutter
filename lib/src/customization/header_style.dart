@@ -77,6 +77,9 @@ class HeaderStyle {
   /// Tapping on it will navigate to next calendar page.
   final Widget rightChevronIcon;
 
+  /// Determines today button's visibility.
+  final bool todayButtonVisible;
+
   /// Determines left chevron's visibility.
   final bool leftChevronVisible;
 
@@ -110,6 +113,7 @@ class HeaderStyle {
     //this.rightChevronIcon = const AssetImage("assets/next.png"),
      this.leftChevronIcon = const Icon(LineIcons.angleLeft,size: 20,color: Colors.white,),
      this.rightChevronIcon = const Icon(LineIcons.angleRight,size: 20,color:Colors.white),
+    this.todayButtonVisible = true,
     this.leftChevronVisible = true,
     this.rightChevronVisible = true,
     this.decoration = const BoxDecoration(),
